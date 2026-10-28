@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SubmitWise: journal submission tracker</title>
+<meta name="description" content="Track every journal submission. SubmitWise explains each Editorial Manager and ScholarOne status, tells you if the wait is normal, and drafts the inquiry email when it isn't.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="icon.png">
+</head>
+<body>
+
+<!--
+  EDIT THESE BEFORE PUBLISHING (also used by the buy section below)
+-->
+<script>
+  window.SW = {
+    upiId: "ganeshpandey.ee-2@okhdfcbank",            // your UPI ID
+    payee: "Ganesh k Pandey",
+    price: 199,                             // rupees
+    email: "ganeshpandey.ee@gmail.com",
+    apk: "https://github.com/inventornext/submitwise/releases/latest/download/SubmitWise.apk"
+  };
+</script>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="24" fill="#1D5C63"/><path fill="#fff" d="M37 30h24l10 10v34a4 4 0 0 1-4 4H37a4 4 0 0 1-4-4V34a4 4 0 0 1 4-4z"/><path fill="#B8EAEF" d="M61 30l10 10h-7a3 3 0 0 1-3-3z"/><path fill="#1D5C63" d="M39 46h24v3H39zM39 53h24v3H39zM39 60h14v3H39z"/><circle cx="68" cy="64" r="12" fill="#FFB86E"/><path fill="#1D5C63" d="M66.5 57h3v7.2l4.6 3.4-1.8 2.4-5.8-4.3z"/></svg>
+      SubmitWise
+    </a>
+    <nav>
+      <a href="#app">See the app</a>
+      <a href="#pricing">Pricing</a>
+      <a class="keep" href="#buy">Buy Pro</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Stop refreshing Editorial Manager.</h1>
+      <p class="lede">SubmitWise tracks every paper you've submitted, explains what each status means, and tells you when it's time to email the editor.</p>
+      <div class="cta-row">
+        <a class="btn primary" id="dl" href="#">Download for Android</a>
+        <a class="btn ghost" href="#buy">Get Pro for ₹199</a>
+      </div>
+      <p class="small dl-meta">Android APK, about 43 MB. The download starts in your browser's downloads.</p>
+      <div class="inapp" id="inapp" hidden>
+        <strong>This in-app browser can't download files.</strong>
+        Tap the <b>&#8942;</b> menu at the top and choose <b>Open in browser</b>, then tap Download again. Or copy the link and paste it into Chrome.
+        <button type="button" class="btn ghost copy" id="copy-dl">Copy download link</button>
+      </div>
+      <p class="small" style="margin-top:14px">Every feature free for up to 2 papers in progress. No account, no ads. Your papers never leave your phone.</p>
+    </div>
+
+    <div class="paper" aria-label="Example of a paper tracked in SubmitWise">
+      <div class="title">Low-cost sensor networks for river water quality monitoring</div>
+      <div class="meta">Water Research, Editorial Manager</div>
+      <ol class="steps">
+        <li class="done"><div class="s">Submitted to Journal</div><div class="d">3 Jun, 2 days</div></li>
+        <li class="done"><div class="s">With Editor</div><div class="d">5 Jun, 12 days</div></li>
+        <li class="now">
+          <div class="s">Under Review</div>
+          <div class="d">since 17 Jun, usually 4 to 12 weeks</div>
+          <div class="bar" role="img" aria-label="74 of 84 days"><span id="bar"></span></div>
+          <div class="d">Day 74 of 84</div>
+        </li>
+      </ol>
+      <div class="verdict"><strong>Still normal.</strong> Reviewers are writing their reports. An inquiry is reasonable in 10 days; SubmitWise will remind you.</div>
+    </div>
+  </div>
+</div>
+
+<section id="app">
+  <div class="wrap">
+    <h2>See it in action</h2>
+    <p class="prose">Real screens from the app. Your papers, what each status means, and the email you'd otherwise spend twenty minutes wording.</p>
+    <div class="shots">
+      <figure class="shot">
+        <div class="phone"><img src="img/app-home.webp" width="720" height="1436" loading="lazy" alt="SubmitWise home screen listing two papers with their status and how long they have waited"></div>
+        <figcaption><strong>Every paper at a glance.</strong> How long each one has waited, and which ones need you.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="phone"><img src="img/app-detail.webp" width="720" height="1436" loading="lazy" alt="Paper detail showing Required Reviews Completed, what it means, typical length and when an inquiry is reasonable"></div>
+        <figcaption><strong>What the status really means.</strong> Typical length, and the day an inquiry becomes reasonable.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="phone"><img src="img/app-email.webp" width="720" height="1436" loading="lazy" alt="A ready-written polite status inquiry email to the editor"></div>
+        <figcaption><strong>The inquiry email, already written.</strong> Polite, with your title, ID and dates filled in.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="prose">
+      <h2>Every status, in plain words</h2>
+      <p>Built-in guides for Elsevier Editorial Manager, IEEE and other ScholarOne journals, and a general set for Springer, MDPI, Wiley and the rest. A few examples:</p>
+    </div>
+    <table class="guide">
+      <thead><tr><th>Status</th><th>What it means</th><th>Typical</th><th>Inquire after</th></tr></thead>
+      <tbody>
+        <tr><td>With Editor</td><td>An editor is checking scope and quality. Most desk rejections happen here, so moving on is a good sign.</td><td class="num">1 to 3 weeks</td><td class="num">4 weeks</td></tr>
+        <tr><td>Required Reviews Completed</td><td>Enough reports are in and the editor is reading them. It says nothing about whether they are positive.</td><td class="num">1 to 3 weeks</td><td class="num">4 weeks</td></tr>
+        <tr><td>Awaiting AE Recommendation</td><td>Reports are in and the Associate Editor is writing a recommendation.</td><td class="num">1 to 3 weeks</td><td class="num">4 weeks</td></tr>
+        <tr><td>Reject and Resubmit</td><td>Not a final rejection. You can send a substantially revised version as a new submission.</td><td class="num">Your move</td><td class="num">None</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:12px">Times are rough guides from common author experience. Every journal and editor is different.</p>
+
+    <div class="features">
+      <div><h3>A reminder at the right moment</h3><p>When a paper passes its usual wait, you get one notification. No chasing too early, no waiting forever.</p></div>
+      <div><h3>The inquiry email, already written</h3><p>A polite note with your title, manuscript ID and dates. Copy it or open it in your email app.</p></div>
+      <div><h3>A 30-second weekly check</h3><p>Once a week SubmitWise lists papers waiting on journals. Tap "No change", or update the status from a screenshot.</p></div>
+      <div><h3>No typing: fill from a screenshot</h3><p>Screenshot your dashboard or the submission email. SubmitWise reads the title, journal, ID, status and dates, on your phone.</p></div>
+      <div><h3>Type "TSG", get the journal</h3><p>About 150 journals built in, searchable by short form. The right status guide is picked for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <p class="prose">Every feature is in the free version: screenshot fill-in, reminders, inquiry emails, the publication list and backup. Pro just removes the limit on papers.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="price">₹0</div>
+        <ul>
+          <li>Every feature</li>
+          <li>Up to 2 papers in progress</li>
+          <li>Accepted and rejected papers don't count</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <h3>Pro</h3>
+        <div class="price">₹199</div>
+        <div class="small">One-time. No subscription.</div>
+        <ul>
+          <li>Every feature</li>
+          <li>Unlimited papers in progress</li>
+          <li>All future updates</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="buy">
+  <div class="wrap">
+    <h2>Buy Pro</h2>
+    <div class="buy">
+      <ol class="howto">
+        <li><strong>Install the free app</strong> using the download button above. Android will ask you to allow installs from your browser; that is normal for apps outside the Play Store.</li>
+        <li><strong>Pay ₹<span class="price-num">199</span> by UPI</strong> to <code class="upi" id="upi-id">YOUR-UPI-ID</code>. On your phone, <a id="upi-link" href="#">tap here to open your UPI app</a>, or scan the QR code.</li>
+        <li><strong>Email your payment details</strong>: the UPI transaction ID (UTR) and the email address you want the licence on. <a id="order-mail" href="#">Write the email</a>.</li>
+        <li><strong>Get your unlock code</strong>, usually the same day. Tap the link in the email on your phone and Pro unlocks.</li>
+      </ol>
+      <div class="qrbox">
+        <img id="qr" src="img/upi-qr.png" width="240" height="241" alt="UPI QR code for paying Ganesh k Pandey">
+        <p class="small" style="margin:12px 0 0">Scan with any UPI app: GPay, PhonePe, Paytm, BHIM</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Made by a researcher who waited too</h2>
+    <div class="about">
+      <div class="avatar" aria-hidden="true">G</div>
+      <div class="prose">
+        <p><strong>Ganesh Kumar Pandey</strong> is a PhD researcher in Electrical Engineering at IIT Kharagpur, working on smart grids, power systems and AI for the grid. He built SubmitWise after years of watching his own papers sit in Editorial Manager and ScholarOne, wondering whether each status was normal.</p>
+        <p>Questions, a missing journal, or a timing that feels wrong? <a class="mail" href="#">Email him</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap"><div class="prose">
+    <h2>Questions</h2>
+    <details><summary>Does SubmitWise log into Editorial Manager for me?</summary><p>No. You still check the journal site, then update the status in SubmitWise with two taps. Logging in for you would mean storing your journal password, which is a risk we won't take. The weekly check-in makes keeping it current quick.</p></details>
+    <details><summary>Why isn't it on the Play Store?</summary><p>It will be. For now it's distributed directly, which keeps the price low. The app is signed by the developer and the download comes from this site's GitHub releases.</p></details>
+    <details><summary>What if I change phones?</summary><p>Enter the same email and unlock code again. Use Export backup in Pro to move your papers.</p></details>
+    <details><summary>Can I get a refund?</summary><p>If Pro doesn't work for you within 7 days of buying, email with your UTR and you'll get a full refund.</p></details>
+    <details><summary>Is my data private?</summary><p>Yes. Your papers stay on your phone. There is no account, no analytics and no server. <a href="privacy.html">Privacy policy</a>.</p></details>
+  </div></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="privacy.html">Privacy</a><a class="mail" href="#">Contact</a>
+    <div style="margin-top:10px">© 2026 Ganesh Kumar Pandey</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var c = window.SW;
+  var upi = "upi://pay?pa=" + encodeURIComponent(c.upiId) +
+            "&pn=" + encodeURIComponent(c.payee) +
+            "&am=" + c.price + "&cu=INR&tn=" + encodeURIComponent("SubmitWise Pro");
+  document.getElementById("upi-id").textContent = c.upiId;
+  document.getElementById("upi-link").href = upi;
+  var dl = document.getElementById("dl");
+  dl.href = c.apk;
+  // LinkedIn, Instagram, Facebook etc. open links in a WebView that silently drops file downloads.
+  var inApp = /LinkedInApp|FBAN|FBAV|Instagram|Twitter|Line\/|; wv\)/i.test(navigator.userAgent);
+  var box = document.getElementById("inapp");
+  if (inApp) box.hidden = false;
+  dl.addEventListener("click", function () { if (inApp) box.hidden = false; });
+  document.getElementById("copy-dl").addEventListener("click", function () {
+    var b = this;
+    function done() { b.textContent = "Link copied"; }
+    if (navigator.clipboard) navigator.clipboard.writeText(c.apk).then(done, function () { prompt("Copy this link:", c.apk); });
+    else prompt("Copy this link:", c.apk);
+  });
+  document.querySelectorAll(".price-num").forEach(function (e) { e.textContent = c.price; });
+  document.querySelectorAll("a.mail").forEach(function (a) { a.href = "mailto:" + c.email + "?subject=" + encodeURIComponent("SubmitWise"); });
+  document.getElementById("order-mail").href = "mailto:" + c.email +
+    "?subject=" + encodeURIComponent("SubmitWise Pro order") +
+    "&body=" + encodeURIComponent("UPI transaction ID (UTR): \nAmount: Rs " + c.price + "\nEmail for the licence: \n");
+
+  // The one animation: the review bar fills to where this example paper is.
+  requestAnimationFrame(function () { setTimeout(function () { document.getElementById("bar").style.width = (74 / 84 * 100) + "%"; }, 250); });
+})();
+</script>
+</body>
+</html>
